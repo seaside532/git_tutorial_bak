@@ -1,0 +1,43 @@
+GitHub 別リポジトリに push する方法
+Git
+GitHub
+この記事は最終更新日から1年以上が経過しています。
+【経緯】
+
+別プロジェクトで作った機能を一部スピンオフして一つのアプリケーションにしたいと言う要望があったため、アプリケーションを別リポジトリにpushすることとなりました。
+【準備】
+
+取り込み元 https://github.com/moto/torikomi_moto.git
+取り込み先 https://github.com/saki/torikomi_saki.git
+【実際のコマンド】
+
+1: $ git clone https://github.com/saki/torikomi_saki.git
+2: $ cd torikomi_saki
+3: $ git remote add torikomi_repo https://github.com/moto/torikomi_moto.git
+4: $ git pull torikomi_repo master
+5: $ git add .
+6: $ git commit -m 'get torikomi_moto'
+7: $ git remote rm torikomi_repo
+8: $ git push origin master
+
+1)$ git clone https://github.com/saki/torikomi_saki.git
+一旦取り込み先のリポジトリをcloneする
+
+2)$ cd torikomi_saki
+取り込み先のディレクトリへ移動
+
+3)$ git remote add torikomi_repo https://github.com/moto/torikomi_moto.git
+取込元をremoteに登録
+
+4)$ git pull torikomi_repo master
+torikomi_repoからマスターにpull
+
+5)$ git add .
+6)$ git commit -m 'get torikomi_moto'
+
+7)$ git remote rm torikomi_repo
+torikomi_repoを削除
+
+8)$ git push origin master
+
+5,6,8については add して commit して push
